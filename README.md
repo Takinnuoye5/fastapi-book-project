@@ -137,6 +137,39 @@ The API includes proper error handling for:
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+
+## Production Deployment
+
+This application is deployed to a DigitalOcean Droplet with the following configuration:
+
+- **Base URL:** <http://167.99.15.224>
+- **Nginx:** Configured as a reverse proxy to forward requests from port 80 to the FastAPI application running on port 8000.
+- **Service Management:** The application is managed by systemd using the service file `/etc/systemd/system/fastapi.service`.
+
+### Accessing the Application
+
+- **API Documentation:** Visit [http://167.99.15.224/docs](http://167.99.15.224/docs) to view the Swagger UI.
+- **Health Check:** Visit [http://167.99.15.224/healthcheck](http://167.99.15.224/healthcheck) to verify the API status.
+
+
+## Continuous Deployment
+
+Every time a pull request is merged into the `main` branch, a GitHub Actions workflow automatically deploys the latest code to the production server. The deployment process includes:
+
+- Checking out the repository.
+- Connecting to the server via SSH.
+- Pulling the latest code from the `main` branch.
+- Activating the virtual environment and installing updated dependencies.
+- Restarting the FastAPI service managed by systemd.
+
+The following GitHub repository secrets are used for deployment:
+
+- `SERVER_IP`
+- `SERVER_USERNAME`
+- `SERVER_SSH_KEY`
+
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
