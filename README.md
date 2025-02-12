@@ -137,7 +137,6 @@ The API includes proper error handling for:
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
 ## Production Deployment
 
 This application is deployed to a DigitalOcean Droplet with the following configuration:
@@ -150,7 +149,6 @@ This application is deployed to a DigitalOcean Droplet with the following config
 
 - **API Documentation:** Visit [http://167.99.15.224/docs](http://167.99.15.224/docs) to view the Swagger UI.
 - **Health Check:** Visit [http://167.99.15.224/healthcheck](http://167.99.15.224/healthcheck) to verify the API status.
-
 
 ## Continuous Deployment
 
@@ -167,8 +165,6 @@ The following GitHub repository secrets are used for deployment:
 - `SERVER_IP`
 - `SERVER_USERNAME`
 - `SERVER_SSH_KEY`
-
-
 
 ## License
 

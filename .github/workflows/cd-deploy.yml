@@ -22,18 +22,18 @@ jobs:
           script: |
             # Navigate to the project directory on your server
             cd /var/www/fastapi-app/fastapi-book-project
-            
+
             # Pull the latest changes from the main branch
             git pull origin main
-            
+
             # Activate the virtual environment
             source venv/bin/activate
-            
+
             # Install dependencies
             pip install -r requirements.txt
-            
+
             # Restart the systemd service to pick up the changes
             sudo systemctl restart fastapi.service
-            
+
             #Check the status of the service
             sudo systemctl status fastapi.service
