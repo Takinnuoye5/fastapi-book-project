@@ -19,6 +19,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
+          passphrase: ${{ secrets.SERVER_SSH_PASSPHRASE }}
           script: |
             # Navigate to the project directory on your server
             cd /var/www/fastapi-app/fastapi-book-project
